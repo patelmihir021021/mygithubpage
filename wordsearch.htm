@@ -1,0 +1,329 @@
+<html>
+<head>
+<link rel="icon" href="search.png" type="image/gif" sizes="16x16">
+<title id="title">
+Search word
+</title>
+<style>
+	#search
+	{
+		background: black url(search.png) right no-repeat;
+    background-size: 20px;
+    border: 0px;
+    margin: 4PX;
+    padding: 12px;
+    background-color: #d4d4d4;
+    height: 40px;
+    background-origin: content-box;
+    border-radius: 5px;
+	    transition-duration: 1s;
+	}
+	#search:hover
+	{
+	    transition-duration: 1s;
+	background-color: #ececec;
+	}
+
+	@media screen and (min-width: 1160px) {
+	
+	.searchheadstyle {
+	top:10px  ;
+	font-size: 40px;
+	position: fixed;
+	left: 300px;
+	transition-duration: 1s;
+    width: 230px;
+	}
+	
+	.tablestyle{
+	left: 520px;
+	transition-duration: 1s;
+	top : 0px;
+	position: fixed;
+	}
+	}
+	
+	@media screen and (max-width: 1160px) { .searchheadstyle {
+	top:10px  ;
+	font-size: 40px;
+	position: fixed;
+	left: 10px;
+	transition-duration: 1s;
+    width: 230px;
+	}
+	.tablestyle{
+	left: 250px;
+	transition-duration: 1s;
+	top : 0px;
+	position: fixed;
+	}
+	}
+	
+	.tablesearch
+	{
+    position: relative;
+    top: 42%;
+    margin-left: auto;
+    margin-right: auto;
+	}
+	
+	
+	.searchstylehead {
+    position: fixed;
+    top: 31%;
+    font-size: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+	}
+	
+input[type=checkbox] {
+	visibility: hidden;
+}
+
+/* SLIDE THREE */
+.googleimage {
+	width: 80px;
+	height: 26px;
+	background: #eaeaea;
+    position: relative;
+    top: 50%;
+    transform: translateY(35%);
+	    left: 17%;
+
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	border-radius: 50px;
+	position: relative;
+
+	-webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2);
+	-moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2);
+	box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2);
+}
+
+.googleimage:after {
+	content: 'OFF';
+	font: 12px/26px Arial, sans-serif;
+	color: #b10000;
+	position: absolute;
+	right: 10px;
+	z-index: 0;
+	font-weight: bold;
+	text-shadow: 1px 1px 0px rgba(255,255,255,.15);
+}
+
+.googleimage:before {
+	content: 'ON';
+	font: 12px/26px Arial, sans-serif;
+	color: #007715;
+	position: absolute;
+	left: 10px;
+	z-index: 0;
+	font-weight: bold;
+}
+
+.googleimage label {
+	display: block;
+	width: 34px;
+	height: 20px;
+
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	border-radius: 50px;
+
+	-webkit-transition: all .4s ease;
+	-moz-transition: all .4s ease;
+	-o-transition: all .4s ease;
+	-ms-transition: all .4s ease;
+	transition: all .4s ease;
+	cursor: pointer;
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	z-index: 1;
+
+	-webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
+	-moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
+	box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
+	background: #fcfff4;
+
+	background: -webkit-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: -moz-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: -o-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: -ms-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
+}
+
+.googleimage input[type=checkbox]:checked + label {
+	left: 43px;
+}
+
+.resultlink1size {
+	color: white;
+    text-decoration: none;
+    padding: 6px 18px;
+    border-radius: 5px;
+    text-align: center;
+    background: rgb(82, 82, 82);
+    margin: 4px;
+	}
+	
+	
+</style>
+</head>
+<body onkeypress="return shortcutKeyPress(event);" style="margin:0px">
+
+
+
+	<div id="searchhead" class="searchstylehead">Search Word</div>
+	<table id="tablesearch" class="tablesearch">
+	<tr><td>
+	<input type="text" id="search" onClick="this.setSelectionRange(0, this.value.length)" placeholder="Type and enter"  onkeypress="return searchKeyPress(event);"></td>
+	<td>
+	<div class="googleimage" style>	
+	<input type="checkbox" value="None" id="googleimage" name="check" />
+	<label for="googleimage"></label>
+	</div><br></td></tr>
+	<tr>
+	<td>
+	<div id="result1text" class="openweb"></div>
+	</td>
+	<td>
+	<div id="result2text" class="openweb"></div>
+	</td>
+	</tr>
+</table>
+
+
+<div id="remove" style="
+    position: fixed;
+    top: 54%;
+    left: 35%;
+	">Turn on if you want to see direct Gooogle Image search result.</div>
+
+
+
+
+
+
+<iframe onkeypress="return shortcutKeyPress(event);" onload='setFocusToTextBox()' id="result1" name="result1" style="
+    position: fixed;
+    left: 0px;
+    height: 0%;
+	width:0%;
+	border:0px;
+	top: 0px;
+	transition: 1s;
+	transition-delay: 3s;
+" src="" ></iframe>
+  <iframe onkeypress="return shortcutKeyPress(event);" onload='setTimeout(setFocusToTextBox(), 7000)' id="result2" name="result2" src=""
+  style="
+    position: fixed;
+    left: 0%;
+    width:0%;
+	height: 0%;
+	border:0px;
+	top: 0px;
+	transition: 1s;
+	transition-delay: 3s;
+	"></iframe>
+
+
+</body>
+<script>
+
+window.onload = function(){
+  var text_input = document.getElementById ('search');
+  text_input.focus ();
+  text_input.select ();
+}
+
+function setFocusToTextBox(){
+    var text_input = document.getElementById ('search');
+  text_input.focus ();
+  text_input.select ();
+}
+
+
+function searchKeyPress(e)
+{
+    
+    e = e || window.event;
+    if (e.keyCode == 13)
+    {
+        result()
+        return false;
+    }
+    return true;
+}
+
+
+function doc_keyUp(e) {
+    if (e.ctrlKey && e.keyCode == 77) {
+         document.getElementById("resultlink1").click();
+    }
+	  if (e.ctrlKey && e.keyCode == 188) {
+         document.getElementById("resultlink2").click();
+    }
+	 if (e.ctrlKey && e.keyCode == 190) {
+         document.getElementById("googleimage").click();
+    }
+	 if (e.ctrlKey && e.keyCode == 191) {
+         document.getElementById("search").click();
+    }
+	 if (e.ctrlKey && e.keyCode == 222) {
+	 var dcom = "http://www.dictionary.com/browse/";
+	 var searchtext = document.getElementById("search").value;
+		var a = "#source-synonyms";
+        window.open(dcom + searchtext + a ,"result1");
+    }
+	}
+
+document.addEventListener('keyup', doc_keyUp, false);
+
+function result() 
+{
+	{	
+		var searchtext = document.getElementById("search").value;
+		var google = "https://www.google.co.in/search?q=";
+		var dcom = "http://www.dictionary.com/browse/";
+		var dcomdir = "#source-luna";
+		var mw = "http://www.merriam-webster.com/dictionary/";
+		var gt = "http://www.gujaratilexicon.com/dictionary/english-to-gujarati/";
+		var gtdir ="#table_lc";
+		var googleimage = "https://www.google.co.in/search?site=&tbm=isch&source=hp&biw=1366&bih=667&q=";
+	document.getElementById('title').innerHTML = searchtext + " - Search Word";
+	document.getElementById('searchhead').className = "searchheadstyle";
+
+	var leftspace = document.getElementById('searchhead').getBoundingClientRect().left;
+	var leftwidth = document.getElementById('searchhead').clientWidth;
+
+
+	
+	document.getElementById('remove').innerHTML = "";
+	document.getElementById('tablesearch').className = "tablestyle";
+	
+	document.getElementById('result1text').innerHTML = "<a class='resultlink1size' id='resultlink1' target='result1' href='" + mw + searchtext + "'>MERRIAM-WEBSTER</a>";
+	
+	document.getElementById('result1').style = "position: fixed;left: 0px;height: 100%;width:50%;border:0px;top: 100px;" ;
+	document.getElementById('result2').style = "position: fixed;position: fixed;    left: 50%;    width:50%;	height: 100%;	border:0px;	top: 100px;" ;
+
+	window.open(dcom + searchtext + dcomdir,"result1");
+	window.open(gt + searchtext + gtdir,"result2");
+	document.getElementById('result2text').innerHTML = "<a id='resultlink2' target='_blank' href='" + googleimage + searchtext + "'>Google Images</a>";
+
+	
+	document.getElementById('resultlink2').style = "width: 100%; background: #525252; color: white; text-decoration: none; padding: 6px; margin: 5px; border-radius: 5px;";
+	
+	if ( document.getElementById("googleimage").checked==true){
+		window.open(googleimage + searchtext + "");
+		}
+	}
+
+}
+</script>
+
+</html>
