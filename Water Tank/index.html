@@ -1,0 +1,158 @@
+<html>
+    <head>
+        <title>Design water tank</title>
+        <link rel="icon" type="image/png" href="img/favicon.ico">
+        <script src="js/page.js"></script>
+        <script src="js/drawings.js"></script>
+        <script src="js/calcscript.js"></script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/animation.js"></script>
+        <script src="js/console.js"></script>
+        <script src="js/jquery.loadie.js"></script>
+        <script id="2d-vertex-shader" type="x-shader/x-vertex">
+            
+			attribute vec2 a_position;
+			uniform vec2 u_resolution;
+			void main() 
+			{
+				// convert the rectangle from pixels to 0.0 to 1.0
+				vec2 zeroToOne = a_position / u_resolution;
+				// convert from 0->1 to 0->2
+				vec2 zeroToTwo = zeroToOne * 2.0;
+				// convert from 0->2 to -1->+1 (clipspace)
+				vec2 clipSpace = zeroToTwo - 1.0;
+				gl_Position = vec4(clipSpace, 0, 1);
+			}
+		
+        </script>
+        <link rel="stylesheet" type="text/css" href="css/layout.css">
+    </head>
+    <body>
+        <div id="page">
+            <div class="title">Design Water Tank </div>
+            <table>
+                <tr>
+                    <td class="tdofinput">Type of tank
+				</td>
+                    <td class="tdofinput">
+                        <select class="inputtext" name="--Tyoe of Water tank--">
+                            <option value="Rectangular rest on ground">Rectangular rest on ground</option>
+                            <option value="Rectangular underground">Rectangular underground</option>
+                            <option value="Circulular rest on ground">Circulular rest on ground</option>
+                            <option value="Circulular underground">Circulular underground</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="inputradio">
+                        <input type="radio" id="rbtn1" name="designby" value="volume" onclick="designbychange(this.value)">Volume
+				
+                    </td>
+                    <td class="inputradio">
+                        <input type="radio" id="rbtn2" name="designby" value="dim" onclick="designbychange(this.value);" checked>Dimention
+				
+                    </td>
+                </tr>
+                <tr id="volrow">
+                    <td class="tdofinput">Volume of tank
+				</td>
+                    <td>
+                        <input type="text" value="100" class="inputtext" id="voloftank">
+                    </td>
+                </tr>
+                <tr id="lrow">
+                    <td class="tdofinput">Lenght
+				</td>
+                    <td>
+                        <input type="text" value="6000" class="inputtext" id="lenght">
+                    </td>
+                </tr>
+                <tr id="wrow">
+                    <td class="tdofinput">Width
+				</td>
+                    <td>
+                        <input type="text" value="4000" class="inputtext" id="width">
+                    </td>
+                </tr>
+                <tr id="hrow">
+                    <td class="tdofinput">Height
+				</td>
+                    <td class="tdofinput">
+                        <input type="text" value="3700" class="inputtext" id="height">
+                    </td>
+                </tr>
+            </table>
+            <div id="calculate" onclick="cal();" onchange="cal();" class="calbutton">Calculate button</div>
+            <div id="advancedtitle" class="title">
+                >> Advanced 
+                << </div>
+                    <div>
+                        <table id="advancedtable" style="display: none;">
+                            <tr>
+                                <td>Grade of Concrete
+				</td>
+                                <td class="tdofinput">
+                                    <select class="inputtext" name="--Tyoe of Water tank--" id="gc">
+                                        <option value="m30">M30</option>
+                                        <option value="m25">M25</option>
+                                        <option value="m20">M20</option>
+                                        <option value="m15">M15</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr id="NumOfBars" class="tdofinput">
+                                <td class="tdofinput">Minimum Number of Bars
+				</td>
+                                <td>
+                                    <input type="text" value="1" class="inputtext" id="">
+                                </td>
+                            </tr>
+                            <tr id="byvollrow" style="Display:table-row">
+                                <td class="tdofinput">Lenght
+				</td>
+                                <td>
+                                    <input type="text" value="1000" class="inputtext" id="byvolloftank">
+                                </td>
+                            </tr>
+                            <tr id="byvolwrow" style="Display:table-row">
+                                <td class="tdofinput">Width
+				</td>
+                                <td>
+                                    <input type="text" value="1000" class="inputtext" id="byvolwoftank">
+                                </td>
+                            </tr>
+                            <tr id="byvolhrow" style="Display:table-row">
+                                <td class="tdofinput">Height
+				</td>
+                                <td class="tdofinput">
+                                    <input type="text" value="2000" class="inputtext" id="byvolhoftank">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="designconstants" class=""></div>
+                    <div>
+                        <div id="DrawingDiv" class="title" style="Display:none;">Drawings </div>
+                        <div id="DrawingData">
+                            <canvas id="canvas1" style="Display:none;"></canvas>
+                            <canvas id="canvas2" style="Display:none;"></canvas>
+                            <canvas id="canvas3" style="Display:none;"></canvas>
+                            <canvas id="canvas4" style="Display:none;"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="ConSoleBox" id="ConSoleBox" style="display:none;">
+                    <div id="Consoletitle" class="title">
+                        >> Console 
+                        << </div>
+                            <div class="console" id="consolediv">
+                                <table id="console"></table>
+                            </div>
+                            <p class="consoleText">>> ></p>
+                            <input type="text" class="consoleinput" autofocus id="ConsoleInput">
+                        </div>
+                        <div id="loadingbox">
+                            <div id="loading"></div>
+                        </div>
+    </body>
+</html>

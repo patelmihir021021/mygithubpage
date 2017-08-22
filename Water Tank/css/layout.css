@@ -1,0 +1,336 @@
+
+body
+{
+	background:#a7a7a7;
+	margin:0px;
+}
+#page
+{
+	display: none;
+}
+			#loadingbox
+			{
+				display:block;
+				position: absolute;
+			    top: 50%;
+    			left: 50%;
+  				width: 300px;
+  				height: 200px;
+  				z-index: 15;
+				width: 120px;
+				height: 120px;
+  				margin: -60px 0 0 -60px;
+			}
+			#loading 
+			{
+				display:block;
+				border: 16px solid #f3f3f3;
+				border-radius: 50%;
+				border-top:16px solid #4e4e4e;
+				width: 120px;
+				height: 120px;
+				-webkit-animation: spin 2s linear infinite;
+				animation: spin 2s linear infinite;
+				margin: 0px;
+			}
+
+				@-webkit-keyframes spin {
+					0% { -webkit-transform: rotate(0deg); }
+					100% { -webkit-transform: rotate(360deg); }
+				}
+
+				@keyframes spin {
+					0% { transform: rotate(0deg); }
+					100% { transform: rotate(360deg); }
+				}
+
+.calbutton
+{
+    padding: 2px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 250px;
+    height: 30px;
+    line-height: 30px;
+    background: #5F5F5F;
+    color: whitesmoke;
+    transition-duration: 0.4s;
+    border: 5px solid;
+    border-color: whitesmoke;
+    border-collapse: inherit;
+    border-radius: 10px;
+}
+.calbutton:hover
+{
+	background: whitesmoke;
+    color: #5F5F5F;
+}
+tr {
+	margin:5px;
+	border-width:1px;
+	background-color: #F9F9F9;
+	min-width:200px;
+	text-align:center;
+	padding:5px;
+}
+
+table, tr, div {
+margin-left: auto;
+margin-right: auto;
+border-collapse: collapse;
+animation:fading 0.4s;
+transition-duration: 0.4s;
+}
+
+::selection
+{
+background:black;
+color:white;
+margin:2px;
+padding:2px;
+}
+
+td{
+	text-align: center;
+    overflow: visible;
+    background-color: #f5f5f5;
+    color: #5F5F5F;
+	min-width:200px;
+	border-collapse: collapse;
+	border: 1px solid #cbcbcb;
+	    transition-duration: 0.4s;
+}
+.tdofinput
+{
+	width: 300px;
+    height: 45px;
+    padding: 0px;
+    padding-top: 0px;
+	    transition-duration: 0.4s;
+}
+.tdofinput:hover
+{
+	background:#5F5F5F;
+	color:#F9F9F9;
+}
+.inputtext
+{
+	width: 100%;
+    padding: 0px;
+    border: 0px solid;
+    height: 100%;
+    padding-left: 20px;	
+	background:#F9F9F9;
+	color:#5F5F5F;
+	transition-duration: 0.4s;
+	outline:none;
+}
+
+.inputtext:hover
+{
+	background: #bdbdbd;
+    color: #424242
+}
+.inputtext:focus
+{
+	background:#5F5F5F;
+	color:#F9F9F9;
+}
+
+.inputradio
+{
+	border: 0px solid;
+	padding-left: 20px;
+	    background: #F9F9F9;
+    transition-duration: 0.4s;
+    outline: none;
+    width: 300px;
+    height: 45px;
+    padding: 0px;
+    padding-top: 0px;
+	text-align: center;
+    overflow: visible;
+    min-width: 200px;
+    border-collapse: collapse;
+    border: 1px solid #cbcbcb;
+    transition-duration: 0.4s;
+}
+
+.inputradio:hover
+{
+	background:#5F5F5F;
+	color:#F9F9F9;
+}
+
+div {
+text-align:center;
+}
+
+.title
+{
+    width: 100%;
+    height: 30px;
+    color: #5f5f5f;
+    background: #dddddd;
+    line-height: 30px;
+    border-bottom: 2px #5f5f5f solid;
+	transition-duration: 0.4s;
+	animation:fading 0.4s;;
+}
+	
+@-webkit-keyframes fading{0%{opacity:0}100%{opacity:1}}
+
+.calbutton span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.4s;
+}
+
+.calbutton span:after {
+  content: "";
+background-image:url(http://apis.msgexc.com/css/png/calculate.png);
+ background-size: 20px 20px;
+	width: 20px;
+	height: 20px;
+  position: absolute;
+  opacity: 0;
+  top: 4px;
+  right: -20px;
+  transition: 0.4s;
+}
+
+.calbutton:hover span {
+  padding-right: 25px;
+}
+
+.calbutton:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+#console, .console{
+	margin-left:0px;
+    background: black;
+    color: gainsboro;
+    font-size: 16px;
+	overflow-x: hidden;
+    overflow-y: auto;
+    height: 200px;
+}
+#consolediv::-webkit-scrollbar-track {
+	background-color:whitesmoake;
+	border-left: 2px whitesmoke solid;
+}
+
+#consolediv::-webkit-scrollbar {
+	width:10px;
+	background-color:whitesmoke;
+}
+
+#consolediv::-webkit-scrollbar-thumb {
+	background-color:#5f5f5f;
+	min-height: 30px;
+	border-radius: 8px;
+    border: 2px whitesmoke solid;
+	transition-duration: 0.4s;
+}
+#consolediv::-webkit-scrollbar-thumb:hover {
+	background-color:black;
+	transition-duration: 0.4s;
+}
+
+p::selection, span::selection , #consolediv::selection
+{
+	background:white;
+	color:black;
+	margin:2px;
+	padding:2px;
+}
+p {
+	text-align:left;
+	padding-left: 30px;
+    background: black;
+    color: gainsboro;
+    font-size: 16px;
+	margin:0px;
+	border:none;
+	min-width:auto;
+}
+p:last-child
+{
+	animation: fadein 0.4s;
+}
+@keyframes fadein {
+ 0% { opacity: 0; margin-left: 0px;}
+    50%   { opacity: 1;  margin-left: 50px;}
+	100%  { opacity: 1;  margin-left: 0px;}
+	}
+
+canvas {
+	background-color:white;
+	margin-left: auto;
+    margin-right: auto;
+	}
+#page{
+	float:left;
+	height:100%;
+	width:100%;
+	overflow-y:auto;
+    position: fixed;
+}
+
+#page::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rbga(0,0,0,0.3);
+	background-color:#dddddd;
+	border-left: 1px #5f5f5f solid;
+}
+
+#page::-webkit-scrollbar {
+	width:10px;
+	background-color:#dddddd;
+}
+
+#page::-webkit-scrollbar-thumb {
+	background-color:#5f5f5f;
+}
+.consoleinput
+{
+	position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    outline: none;
+    background: rgb(25, 25, 25);
+    border: none;
+    border-top: 1px rgba(255, 255, 255, 0.74) solid;
+	color: white;
+	margin-left: 66px;
+}
+.consoleText
+{
+	position: fixed;
+    left: 0px;
+    bottom: 0px;
+    color: white;
+    background: #191919;
+    width: 36px;
+    padding-left: 30;
+    border-top: 1px rgba(255, 255, 255, 0.74) solid;
+    height: 17px;
+}
+.ConSoleBox
+{
+position: fixed;bottom: 18px;width: 100%;opacity: 1;transition-duration: 0.4s;
+}
+
+.loadie {
+position: fixed;
+top: 0;
+left: 0;
+background-color: #000;
+width: 0;
+height: 4px;
+-webkit-transition: width 0.5s ease-out;
+box-shadow: 0px 1px 5px rgba(0,0,0,0.25);
+}

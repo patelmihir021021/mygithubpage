@@ -1,0 +1,116 @@
+<html>
+<head>
+
+<title>Smart Village</title>
+<link href="favicon.ico" type="image/ico" rel="icon">
+<script src="mainjava.js"></script>
+<link rel="stylesheet" type="text/css" href="mainpage.css">
+
+</head>
+<body style="
+    background: #75E975;
+">
+	<div class="smarthead" id="smarthead">
+	Make village Smart and Sustainable
+	</div>
+			<div class="infobackground" id="infobackground" onclick="invisiblecontainer()">
+				<center>
+				<div class="textinfocontainer">
+				<div class="textofcontainerofinfo">Hi,This website's aim is provide information for development in rural area or specifically in village. And guide them in properway to utilize natural resorces and goverment schemes
+				</div>
+				</div>
+				</center>
+				  
+					</div>
+		<div class="linearmenubox" onmouseover="setTimeout(menumouseOver(),2000);" onmouseout="setTimeout(menumouseOut(),2000);"  id="linearmenubox">
+				<div style="margin-top:18px">
+				<div class="linear" id="linear1"></div>
+				<div class="linear" id="linear2"></div>
+				<div class="linear" id="linear3"></div>
+				</div>
+		</div>
+		<div class="menubox"  onmouseover="setTimeout(menumouseOver(),2000);" onmouseout="setTimeout(menumouseOut(),2000);" id="menubox">
+		<div class="menutext">Home</div>
+		<div class="menutext">About Us</div>
+		<div class="menutext">Contact Us</div>
+		</div>
+		<div class="infobutton"
+				
+			onclick="visibleconaitner()" id="infobutton">
+					<svg height="58" class="info" width="58" id="info" onmouseover="infomouseOver()" onmouseout="infomouseOut()">
+			  <circle cx="29" cy="29" r="20" stroke-width="3" style="
+				stroke: #197B17;
+				fill: rgba(0, 0, 0, 0);
+			" id="info1" class="info"></circle>
+			  <rect x="27" y="15" width="4" height="20" style="fill: #197B17;" id="info2" class="info">
+			</rect>
+			<circle cx="29" cy="40" r="2" style="stroke:#197B17;" stroke-width="1" fill="#197B17" id="info3" class="info"></circle></svg></div>
+	<div id="data" class="questiontable">
+	<center>
+		<table class="datatable" id="datatable">
+			<tr>
+				<td>Population of village</td>
+				<td>
+					<select name="population" id="population">
+						<option value="lessthan500">Less than 500</option>
+						<option value="500to1000">500 t0 1000</option>
+						<option value="1000to2000">1000 to 2000</option>
+						<option value="morethanthan2000">More than 2000</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr><td colspan="2" class="space"></td></tr>
+			
+			<tr>
+				<td>Electriciy</td>
+				<td>
+				
+					<select name="electriciy" id="electriciy">
+						<option value="yes">Yes</option>
+						<option value="no">No</option>
+						<option value="Not regular">Not regular</option>
+						<option value="haveagreenenergy">Have a green energy</option>
+					</select>
+				</td>	
+			</tr>
+			
+			<tr><td colspan="2" class="space"></td></tr>
+			
+			<tr>
+				<td>Water in full year </td>
+				<td>
+					<select name="water" id="water">
+						<option value="yes">Yes</option>
+						<option value="no">No</option>
+						<option value="Not regular">Not regular</option>
+						<option value="haveagreenenergy">Have a not purified water</option>
+					</select>
+				</td>	
+			</tr>
+			
+			<tr><td colspan="2" class="space"></td></tr>
+			
+			<tr>
+				<td>Income based on</td>
+				<td>
+						<input type="checkbox" name="income" value="Agriculture">Agriculture<br>
+						<input type="checkbox" name="income" value="Animal hospitality">Animal hospitality<br>
+						<input type="checkbox" name="income" value="Fishing">Fishing<br>
+						<input type="checkbox" name="income" value="Others">Others
+					</select>
+				</td>	
+			</tr>
+			
+			
+			
+		
+		</table>
+		<button class="timelinebutton" id="timelinebutton" onclick=" changepagetoresult()"><span>Get Timeline </span></button>
+		
+		</center>
+	</div>
+	<h4 class="smartbottom">
+	Thank you | Suggetions are kindly excepted
+	</h4>
+</html>

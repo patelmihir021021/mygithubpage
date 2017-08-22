@@ -1,0 +1,169 @@
+<html>
+<head>
+<title>Concrete Calculate</title>
+<style>
+.iteamtbl, .caldbtn , .adddbtn , #result, h3, .center
+{
+text-align:center;
+margin-left: auto;
+margin-right: auto;
+}
+
+.right
+{
+float:right;
+}
+
+#btn
+{
+width:100%;
+}
+td, input
+{
+min-width:120px;
+max-width:120px;
+padding: 0px;
+border: 0.5px solid black;
+}
+table{border: 0.5px solid black;}
+input
+{
+	font-size: 14px;
+    padding-left: 8px;
+	border: 0px;
+}
+</style>
+<script>
+var iteam;
+var number;
+var x1;
+var y1;
+var z1;
+var total = 0;
+var result = "";
+function run()
+{
+result = "";
+total = 0;
+for(i=0;i<document.getElementById("iteams").rows.length;i++)
+{
+number = document.getElementById("numc" + ( i + 1 )).value;
+x1 = document.getElementById("x" + ( i + 1 )).value;
+y1 = document.getElementById("y" + ( i + 1 )).value;
+z1 = document.getElementById("z" + ( i + 1 )).value;
+total = number*x1*y1*z1 + total;
+result = result + document.getElementById("iteams").rows[i].cells[0].innerHTML + "<span class='right'> = " + number*x1*y1*z1 + " Cubic feet" + "</span></br>";
+}
+result = result + "Total" + "<span class='right'> = " + total + " Cubic feet </span><br> <span style='    padding-left: 50%;'>OR</span> <br> " + "Total" + "<span class='right'>  = " + (total*Math.pow(0.3048,3)).toFixed(3) + " Cubic meter </span><br>";
+
+for(i=0;i<document.getElementById("iteams").rows.length;i++)
+{
+number = document.getElementById("numc" + ( i + 1 )).value;
+x1 = document.getElementById("x" + ( i + 1 )).value;
+y1 = document.getElementById("y" + ( i + 1 )).value;
+z1 = document.getElementById("z" + ( i + 1 )).value;
+result = result + "(In one RMC truck " + " Column " + (i+1) + " sized " + (6/(x1*y1*z1*Math.pow(0.3048,3))).toFixed(2) + " columns can be concreted.) </br>";
+}
+
+result = result + "<br><br>In Manual method,<br><br>" + (total/4) + " Gani Required.<br>";
+result = result + "Sand <span class='right'> = " + (total/4)*4 + " Tagara</span><br>";
+result = result + "Kapachi <span class='right'> = " + (total/4)*3 + " Tagara</span><br>";
+result = result + "Greed <span class='right'> = " + (total/4)*2 + " Tagara</span><br>";
+result = result + "Cement <span class='right'> = " + (total/4) + "  Bags </span><br>";
+
+document.getElementById("result").innerHTML = result;;
+}
+
+function addclmn()
+{
+var lastrow = document.getElementById("iteams").rows.length;
+var table = document.getElementById("iteams");
+var row = table.insertRow(lastrow);
+var i=1;
+var v = ["1","numc", "x", "y", "z"]
+for(i=0;i<5;i++)
+{
+
+var cell = row.insertCell(i);
+cell.innerHTML = "<input type='text' id='" + v[i] + (lastrow+1) + "' value='1'>";
+if(i === 0){cell.innerHTML = "Column " + (lastrow + 1);}
+}
+
+}
+
+function rmvclmn()
+{
+var lastrow = document.getElementById("iteams").rows.length;
+var table = document.getElementById("iteams");
+table.deleteRow(lastrow-1);
+}
+</script>
+</head>
+<body>
+<h3>All dimentions are in feet</h3>
+<table class="iteamtbl" style="
+    padding: 0px;
+    border-spacing: 0px;
+	    border-collapse: collapse;
+">
+<tr>
+<td id="text1">Column Name</td>
+<td>Amout</td>
+<td>Width</td>
+<td>Length</td>
+<td>Height</td>
+</tr>
+</table>
+<br>
+<br>
+<table id="iteams" class="iteamtbl" style="
+    padding: 0px;
+    border-spacing: 0px;
+	    border-collapse: collapse;
+">
+<caption id="caption" style="text-align: right;">Column
+<span style="float: right;padding-right: 1px;">
+<input type="button" id="btn" onclick="rmvclmn();" value="Remove" style="
+    border: 2px solid red;
+    padding: 2px;
+    color: red;
+    background: rgb(255, 176, 176);
+	    cursor: pointer;
+"></span>
+<span style="padding-left:10px;float: right;">
+<input type="button" id="btn" onclick="addclmn();" value="Add"
+    style="
+    border: 2px solid #4CAF50;
+    padding: 2px;
+    color: #4CAF50;
+	    cursor: pointer;
+    background: rgb(229, 255, 230);
+"></span>
+</caption>
+<tr>
+<td id="text1">Column 1</td>
+<td><input type="text" id="numc1" value="1" placeholder="Amout"></td>
+<td><input type="text" id="x1" value="2" placeholder="Width"></td>
+<td><input type="text" id="y1" value="0.75" placeholder="Length"></td>
+<td><input type="text" id="z1" value="8" placeholder="Height"></td>
+</tr>
+</table>
+
+
+<div class="caldbtn" style="">
+<input type="button" id="btn" onclick="run();" value="Calculate" style="
+color: #000000;
+    border: 2px solid #000000;
+    cursor: pointer;
+    background: rgb(241, 241, 241);
+    border-radius: 16px;
+    font-size: 17px;
+    padding: 6px;
+    margin: 13px;
+">
+</div>
+<div style="width:400px" class="center">
+<div style="text-align:left;" id="result"></div>
+</div>
+</body>
+</html>
