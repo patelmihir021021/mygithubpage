@@ -1,18 +1,19 @@
 .header {
 	font-family: monospace;
-    font-size: 10vmin;
+    font-size: 14vmin;
     background: #2b303e;
     color: #ff9800;
     top: 0px;
     text-align: center;
     cursor: pointer;
-	
-      -webkit-transition: all 0.35s ease-in;
+      -webkit-transition: all 0.35s ease-in;	 
+    padding: 1vmin;
 	}
     .bton {
 	padding: 8px;
     border: 2px solid #ef6c00;
-    width: 40%;
+	min-width: 5cm;
+    max-width: 40%;
     border-radius: unset;
     color: #ef6c00;
     font-size: 20px;
@@ -40,7 +41,8 @@
 	    .subbtn {
 	padding: 8px;
     border: 2px solid #2b303e;
-    width: 40%;
+	min-width: 5cm;
+    max-width: 40%;
     border-radius: unset;
     color: #2b303e;
     font-size: 20px;
@@ -51,11 +53,6 @@
 	-moz-user-select: none;
    -khtml-user-select: none;
    -webkit-user-select: none;
-
-   /*
-     Introduced in IE 10.
-     See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
-   */
    -ms-user-select: none;
    user-select: none;
     background-color: ivory;
@@ -72,17 +69,15 @@
       left: 50%;
       -webkit-transform: translate(-50%, -50%);
     }
-    .input{
-     background-color: #ff9800;
+	.input {
+    background-color: #ff9800;
     border: 1mm solid #ef6c00;
-    /* color: #A6CAE6; */
     font-family: "Titillium Web";
-    font-size: 7mm;
-    line-height: 12mm;
-    padding: 0px 3.1mm;
+    line-height: calc(1cm + 2vmin);
+    padding: 0px 1vmin;
     width: 100%;
     -webkit-transition: all 0.35s ease-in;
-	}
+}
     textarea {
       background-color: #070F24;
       border: 1px solid #122435;
@@ -138,17 +133,17 @@ background-color: #ef6c00;
 	color: rgba(255, 255, 255, 0.5);
       -webkit-transition: all 0.35s ease-in;
 	}
-	.inputin {
-	color: #2b303e;
+.inputin {
     background: #ff9800;
     border: none;
     outline: none;
     font-family: "Titillium Web";
-    font-size: 7mm;
-    width: 50%;
+    font-size: calc(0.3cm + 4vmin);
     text-align: center;
-      -webkit-transition: all 0.35s ease-in;
-	}
+    -webkit-transition: all 0.35s ease-in;
+    min-width: 5cm;
+    min-height: 1cm;
+}
 	.inputin:active, .inputin:focus{
 	outline:none;
 	border:none;
