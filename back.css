@@ -1,6 +1,6 @@
 .header {
 	font-family: monospace;
-    font-size: 14vmin;
+    font-size: calc(40pt + 6vmin);
     background: #2b303e;
     color: #ff9800;
     top: 0px;
@@ -44,7 +44,7 @@
     cursor: pointer;
     -webkit-transition-duration: 0.5s;
     transition-duration: 0.5s;
-    margin: 10px;
+    margin: 2vmin;
     -moz-user-select: none;
     -khtml-user-select: none;
     -webkit-user-select: none;
