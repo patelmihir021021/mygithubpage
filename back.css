@@ -10,17 +10,17 @@
     padding: 1vmin;
 	}
     .bton {
-	padding: 8px;
-    border: 2px solid #ef6c00;
+		padding: 1vmin;
+    border: 0.5vmin solid #ef6c00;
     min-width: 5cm;
-    max-width: 40%;
+    max-width: 80vmin;
     border-radius: unset;
     color: #ef6c00;
-    font-size: calc(0.5cm + 1vmin);
+    font-size: 5vmin;
     cursor: pointer;
     -webkit-transition-duration: 0.5s;
     transition-duration: 0.5s;
-    margin: 10px;
+    margin: 2vmin;
     -moz-user-select: none;
     -khtml-user-select: none;
     -webkit-user-select: none;
@@ -31,16 +31,16 @@
 	.bton:hover {
 	color: ghostwhite;
 	background: #ff9800;
-	border: 2px solid ghostwhite;
+	border: 0.5vmin solid ghostwhite;
 	}
-	    .subbtn {
-    padding: 8px;
-    border: 2px solid #2b303e;
+	.subbtn {    
+	padding: 1vmin;
+    border: 0.5vmin solid #2b303e;
     min-width: 5cm;
-    max-width: 40%;
+    max-width: 80vmin;
     border-radius: unset;
     color: #2b303e;
-    font-size: calc(0.5cm + 2.5vmin);
+    font-size: 5vmin;
     cursor: pointer;
     -webkit-transition-duration: 0.5s;
     transition-duration: 0.5s;
@@ -55,7 +55,7 @@
 	.subbtn:hover {
 	color: ghostwhite;
 	background: #2b303e;
-	border: 2px solid ghostwhite;
+	border: 0.5vmin solid ghostwhite;
 	}
 	
 	.container {
@@ -116,13 +116,13 @@
       -webkit-transition: all 0.35s ease-in;
     }
     .spoken-response__text {
-background-color: #ef6c00;
+    background-color: #ef6c00;
     color: white;
     padding: 1mm;
     font-family: "Titillium Web";
-    font-size: 7mm;
-    text-align: justify;
-    padding: 3mm 28% 3mm 28%;
+    font-size: 5vmin;
+    text-align: center;
+    padding: 1vmin 28% 1vmin 28%;
 	}
 	::-webkit-input-placeholder{
 	color: rgba(255, 255, 255, 0.5);
