@@ -16,7 +16,7 @@
     max-width: 80vmin;
     border-radius: unset;
     color: #ef6c00;
-    font-size: 5vmin;
+    font-size: 30px;
     cursor: pointer;
     -webkit-transition-duration: 0.5s;
     transition-duration: 0.5s;
@@ -40,7 +40,7 @@
     max-width: 80vmin;
     border-radius: unset;
     color: #2b303e;
-    font-size: 5vmin;
+    font-size: 30pt;
     cursor: pointer;
     -webkit-transition-duration: 0.5s;
     transition-duration: 0.5s;
