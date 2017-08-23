@@ -1,145 +1,147 @@
-<html>
-    <head><link rel="shortcut icon" href="http://mihir.me.pn/images/favicon.ico">
+<html><head>
 <title>iMihir</title>
-<style>
-    
-	.header {
-	font-family: monospace;
-    font-size: 30px;
-    background: #2b303e;
-    color: #ff9800;
-    top: 0px;
-    text-align: center;
-    cursor: pointer;
-	}
-    .btn {
-	padding: 8px;
-    border: 2px solid #ef6c00;
-    width: 40%;
-    border-radius: unset;
-    color: #ef6c00;
-    font-size: 20px;
-    cursor: pointer;
-	-webkit-transition-duration: 0.5s;
-    transition-duration: 0.5s;
-	margin: 10px;
-	-moz-user-select: none;
-   -khtml-user-select: none;
-   -webkit-user-select: none;
-
-   /*
-     Introduced in IE 10.
-     See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
-   */
-   -ms-user-select: none;
-   user-select: none;
-	}
-	.btn:hover {
-	color: ghostwhite;
-	background: #ff9800;
-	border: 2px solid ghostwhite;
-	}
-	    .subbtn {
-	padding: 8px;
-    border: 2px solid #2b303e;
-    width: 40%;
-    border-radius: unset;
-    color: #2b303e;
-    font-size: 20px;
-    cursor: pointer;
-	-webkit-transition-duration: 0.5s;
-    transition-duration: 0.5s;
-	margin: 10px;
-	-moz-user-select: none;
-   -khtml-user-select: none;
-   -webkit-user-select: none;
-
-   /*
-     Introduced in IE 10.
-     See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
-   */
-   -ms-user-select: none;
-   user-select: none;
-	}
-	.subbtn:hover {
-	color: ghostwhite;
-	background: #2b303e;
-	border: 2px solid ghostwhite;
-	}
-	.header {
-	font-family: monospace;
-    font-size: 30px;
-    background: #2b303e;
-    color: #ff9800;
-    top: 0px;
-    text-align: center;
-    cursor: pointer;
-	}
-	
-</style>
-<script type="text/javascript">
-function contact() {
-    var x = document.getElementById('call');
-	var y = document.getElementById('email');
-    if (x.style.display === 'none') {
-        x.style.display = 'block';
-		y.style.display = 'block';
-    } else {
-        x.style.display = 'none';
-		y.style.display = 'none';
+<link rel="shortcut icon" href="favicon.png">
+<link href="back.css" rel="stylesheet">
+<script src="back.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+<script>
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-78581557-1', 'auto');
+  ga('send', 'pageview');
+    var accessToken = "18b73cf8fa924fe7aaf8d9700005c9ee",
+      baseUrl = "https://api.api.ai/v1/",
+      $speechInput,
+      $recBtn,
+      recognition,
+      messageRecording = "Recording...",
+      messageCouldntHear = "I couldn't hear you!",
+      messageInternalError = "Internal server error",
+      messageSorry = "I don't have the answer to that yet.";
+    $(document).ready(function() {
+      $speechInput = $("#speech");
+      $recBtn = $("#rec");
+      $speechInput.keypress(function(event) {
+        if (event.which == 13) {
+          event.preventDefault();
+          send();
+        }
+      });
+      $recBtn.on("click", function(event) {
+        switchRecognition();
+      });
+      $(".debug__btn").on("click", function() {
+        $(this).next().toggleClass("is-active");
+        return false;
+      });
+    });
+    function startRecognition() {
+      recognition = new webkitSpeechRecognition();
+      recognition.continuous = false;
+          recognition.interimResults = false;
+      recognition.onstart = function(event) {
+        respond(messageRecording);
+        updateRec();
+      };
+      recognition.onresult = function(event) {
+        recognition.onend = null;        
+        var text = "";
+          for (var i = event.resultIndex; i < event.results.length; ++i) {
+            text += event.results[i][0].transcript;
+         }
+          setInput(text);
+        stopRecognition();
+      };
+      recognition.onend = function() {
+        respond(messageCouldntHear);
+        stopRecognition();
+      };
+      recognition.lang = "en-US";
+      recognition.start();
     }
-}
-
-function project() {
-    var x = document.getElementById('sm');
-	var y = document.getElementById('cc');
-	var z = document.getElementById('wtc');
-    if (x.style.display === 'none') {
-        x.style.display = 'block';
-		y.style.display = 'block';
-		z.style.display = 'block';
-    } else {
-        x.style.display = 'none';
-		y.style.display = 'none';
-		z.style.display = 'none';
+    function stopRecognition() {
+      if (recognition) {
+        recognition.stop();
+        recognition = null;
+      }
+      updateRec();
     }
-}
-function contact() {
-    var x = document.getElementById('call');
-	var y = document.getElementById('email');
-    if (x.style.display === 'none') {
-        x.style.display = 'block';
-		y.style.display = 'block';
-    } else {
-        x.style.display = 'none';
-		y.style.display = 'none';
+    function switchRecognition() {
+      if (recognition) {
+        stopRecognition();
+      } else {
+        startRecognition();
+      }
     }
-}
-</script>
+    function setInput(text) {
+      $speechInput.val(text);
+      send();
+    }
+    function updateRec() {
+      $recBtn.text(recognition ? "Stop" : "Speak");
+    }
+    function send() {
+      var text = $speechInput.val();
+      $.ajax({
+        type: "POST",
+        url: baseUrl + "query",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        headers: {
+          "Authorization": "Bearer " + accessToken
+        },
+        data: JSON.stringify({query: text, lang: "en", sessionId: "yaydevdiner"}),
+        success: function(data) {
+          prepareResponse(data);
+        },
+        error: function() {
+          respond(messageInternalError);
+        }
+      });
+    }
+    function prepareResponse(val) {
+      var debugJSON = JSON.stringify(val, undefined, 2),
+        spokenResponse = val.result.speech;
 
+      respond(spokenResponse);
+      debugRespond(debugJSON);
+    }
+    function debugRespond(val) {
+      $("#response").text(val);
+    }
+    function respond(val) {
+      if (val == "") {
+        val = messageSorry;
+      }
+      if (val !== messageRecording) {
+        var msg = new SpeechSynthesisUtterance();
+        msg.voiceURI = "native";
+        msg.text = val;
+        msg.lang = "en-US";
+        window.speechSynthesis.speak(msg);
+      }
+      $("#spokenResponse").addClass("is-active").find(".spoken-response__text").html(val);
+    }
+  </script>
 </head>
-
-<body style="
-    color: #2b303e;
-    background: ghostwhite;
-    margin: 0;
-">
-
-
-<div class="header" onclick="location.href='index.html';">Mihir Patel</div>
+<body style="color: #2b303e;background: ghostwhite;margin: 0;">
+<div class="header" onclick="location.href='index.html';">iMihir</div>
 <center>
-<iframe height="40%" width="50%" src="https://console.api.ai/api-client/demo/embedded/7b482afa-ff8f-49a7-9867-a5e4148c4674" id="myIframe" style="
-    border: none;
-    padding: 10px;
-"></iframe>
-<div class="btn" onclick="location.href='Resume.pdf';">Resume</div>
-<div class="btn" onclick="project()">Projects</div>
+<div class="input"><input id="speech" class="inputin" type="text" style="color:white;" placeholder="Hey, I'm a Bot. Type here..."></div>
+<div id="rec" class="bton" ><b>Speak</b></div>
+<div id="spokenResponse" class="spoken-response"><div class="spoken-response__text"></div></div>
+<div class="bton" onclick="location.href='Resume.pdf';">Resume</div>
+<div class="bton" onclick="project()">Projects</div>
 <div class="subbtn" id="sm" onclick="location.href='Smart Village/index.html';" style="display: none; ">Smart Village Webpage</div>
 <div class="subbtn" id="cc" onclick="location.href='Concrete Calculator/index.html';" style="display: none;">Concrete Calculator</div>
 <div class="subbtn" id="wtc" onclick="location.href='Water Tank/index.html';" style="display: none;">Water Tank Calculator</div>
-<div class="btn" id="contact" onclick="contact()">Contact me</div>
+<div class="bton" id="contact" onclick="contact()">Contact me</div>
 <div class="subbtn" id="call" onclick="location.href='tel:+17736540607';" style="display: none; ">Call</div>
 <div class="subbtn" id="email" onclick="location.href='mailto:mpatel117@hawk.iit.edu';" style="display: none;">Email</div>
-</center>
-
-</body></html>
+</center></body></html>

@@ -1,0 +1,156 @@
+.header {
+	font-family: monospace;
+    font-size: 10mm;
+    background: #2b303e;
+    color: #ff9800;
+    top: 0px;
+    text-align: center;
+    cursor: pointer;
+	
+      -webkit-transition: all 0.35s ease-in;
+	}
+    .bton {
+	padding: 8px;
+    border: 2px solid #ef6c00;
+    width: 40%;
+    border-radius: unset;
+    color: #ef6c00;
+    font-size: 20px;
+    cursor: pointer;
+	-webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+	margin: 10px;
+	-moz-user-select: none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+
+   /*
+     Introduced in IE 10.
+     See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+   */
+   -ms-user-select: none;
+   user-select: none;
+    background-color: bisque;
+	}
+	.bton:hover {
+	color: ghostwhite;
+	background: #ff9800;
+	border: 2px solid ghostwhite;
+	}
+	    .subbtn {
+	padding: 8px;
+    border: 2px solid #2b303e;
+    width: 40%;
+    border-radius: unset;
+    color: #2b303e;
+    font-size: 20px;
+    cursor: pointer;
+	-webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+	margin: 10px;
+	-moz-user-select: none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+
+   /*
+     Introduced in IE 10.
+     See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+   */
+   -ms-user-select: none;
+   user-select: none;
+    background-color: ivory;
+	}
+	.subbtn:hover {
+	color: ghostwhite;
+	background: #2b303e;
+	border: 2px solid ghostwhite;
+	}
+	
+	.container {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+    }
+    .input{
+     background-color: #ff9800;
+    border: 1mm solid #ef6c00;
+    /* color: #A6CAE6; */
+    font-family: "Titillium Web";
+    font-size: 7mm;
+    line-height: 12mm;
+    padding: 0px 3.1mm;
+    width: 100%;
+    -webkit-transition: all 0.35s ease-in;
+	}
+    textarea {
+      background-color: #070F24;
+      border: 1px solid #122435;
+      color: #606B88;
+      padding: 0.5em;
+      width: 100%;
+      -webkit-transition: all 0.35s ease-in;
+    }
+    input:active, input:focus, textarea:active, textarea:focus {
+      outline: 1px solid #48788B;
+      -webkit-transition: all 0.35s ease-in;
+    }
+    .debug {
+      bottom: 0;
+      position: fixed;
+      right: 0;
+      -webkit-transition: all 0.35s ease-in;
+    }
+    .debug__content {
+      font-size: 14px;
+      max-height: 0;
+      overflow: hidden;
+      -webkit-transition: all 0.35s ease-in;
+    }
+    .debug__content.is-active {
+      display: block;
+      max-height: 500px;
+      -webkit-transition: all 0.35s ease-in;
+    }
+    .debug__btn {
+      width: 100%;
+      -webkit-transition: all 0.35s ease-in;
+    }
+    .spoken-response {
+      display: none;
+      overflow: hidden;
+      -webkit-transition: all 0.35s ease-in;
+    }
+    .spoken-response.is-active {
+      display: initial;
+      -webkit-transition: all 0.35s ease-in;
+    }
+    .spoken-response__text {
+background-color: #ef6c00;
+    color: white;
+    padding: 1mm;
+    font-family: "Titillium Web";
+    font-size: 7mm;
+    text-align: justify;
+    padding: 3mm 28% 3mm 28%;
+	}
+	::-webkit-input-placeholder{
+	color: rgba(255, 255, 255, 0.5);
+      -webkit-transition: all 0.35s ease-in;
+	}
+	.inputin {
+	color: #2b303e;
+    background: #ff9800;
+    border: none;
+    outline: none;
+    font-family: "Titillium Web";
+    font-size: 7mm;
+    width: 50%;
+    text-align: center;
+      -webkit-transition: all 0.35s ease-in;
+	}
+	.inputin:active, .inputin:focus{
+	outline:none;
+	border:none;
+	-moz-outline-style: none;
+	}
